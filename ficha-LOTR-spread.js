@@ -114,7 +114,30 @@ const posicao2 = {
   posicao: "inimigo",
 };
 
-//Raças classificadas como 1(hobbit), 2(humano), 3(elfo) e 4(anão)
+//Raças classificadas como 1(hobbit), 2(humano), 3(elfo) e 4(anão) e suas características
+const hobbit = {
+  raca: "hobbit",
+  altura: 1.2,
+  velocidade: 5,
+};
+
+const humano = {
+  raca: "humano",
+  altura: 1.8,
+  velocidade: 7,
+};
+
+const elfo = {
+  raca: "elfo",
+  altura: 1.7,
+  velocidade: 10,
+};
+
+const anao = {
+  raca: "anão",
+  altura: 1.4,
+  velocidade: 6,
+};
 
 //Funçaõ que atribui os atributos de cada classe ao personagem
 personagensLOTR.forEach((personagem) => {
@@ -137,6 +160,25 @@ personagensLOTR.forEach((personagem) => {
     atributos.forca += 7;
     atributos = { ...atributos, ...posicao2 };
   }
-
+//Condição para atribuir os atributos de acordo com a raça do personagem
+  if (personagem.raca === 1) {
+    atributos.carisma +=2;
+    atributos.destreza +=2;
+    atributos = { ...atributos, ...hobbit };
+  } else if (personagem.raca === 2) {
+    atributos = { ...atributos, ...humano };
+  } else if (personagem.raca === 3) {
+    atributos.forca += 3;
+    atributos.defesa += 3;
+    atributos.destreza += 3;
+    atributos.carisma += 3;
+    atributos = { ...atributos, ...elfo };
+  } else if (personagem.raca === 4) {
+    atributos.forca += 5;
+    atributos.carisma -= 2;
+    atributos.inteligencia -= 1;
+    atributos = { ...atributos, ...anao };
+  }
+  
   console.log(atributos);
 });
