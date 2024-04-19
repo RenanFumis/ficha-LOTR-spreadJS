@@ -3,50 +3,62 @@ const personagensLOTR = [
   {
     nome: "Frodo",
     classe: "ladino",
+    posicao: 1,
   },
   {
     nome: "Sam",
     classe: "clérigo",
+    posicao: 1,
   },
   {
     nome: "Merry",
     classe: "guerreiro",
+    posicao: 1,
   },
   {
     nome: "Pippin",
     classe: "guerreiro",
+    posicao: 1,
   },
   {
     nome: "Gollum",
     classe: "ladino",
+    posicao: 2,
   },
   {
     nome: "Bilbo",
     classe: "ladino",
+    posicao: 1,
   },
   {
     nome: "Aragorn",
     classe: "guerreiro",
+    posicao: 1,
   },
   {
     nome: "Gimli",
     classe: "guerreiro",
+    posicao: 1,
   },
   {
     nome: "Legolas",
     classe: "guerreiro",
+    posicao: 1,
   },
   {
     nome: "Gandalf",
     classe: "clérigo",
+    posicao: 1,
   },
   {
     nome: "Saruman",
     classe: "clérigo",
+    posicao: 2,
   },
   {
     nome: "Boromir",
     classe: "guerreiro",
+    posicao: 1,
   },
 ];
 
@@ -80,6 +92,13 @@ const ladino = {
   vida: 100,
 };
 
+//Posições classificadas como 1(companheiro) e 2(inimigo)
+const posicao = {
+  posicao: "companheiro",
+};
+const posicao2 = {
+  posicao: "inimigo",
+};
 
 //Funçaõ que atribui os atributos de cada classe ao personagem
 personagensLOTR.forEach((personagem) => {
@@ -93,6 +112,14 @@ personagensLOTR.forEach((personagem) => {
   } else if (personagem.classe === "clérigo") {
     atributos = { ...personagem, ...clerigo };
     console.log("==========================");
+  }
+  //Condição para atribuir os atributos de acordo com a posição do personagem
+  if (personagem.posicao === 1) {
+    atributos.defesa += 5;
+    atributos = { ...atributos, ...posicao };
+  } else if (personagem.posicao === 2) {
+    atributos.forca += 7;
+    atributos = { ...atributos, ...posicao2 };
   }
 
   console.log(atributos);
