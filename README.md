@@ -22,8 +22,19 @@
 
 ###
 
-<p align="left">1. Clone este repositório para o seu ambiente local.<br>2. Abra o arquivo lotr_character_creator.js em um editor de texto ou IDE.<br>3. Execute o arquivo JavaScript em um ambiente Node.js para ver a saída dos personagens criados e seus atributos.<br><br>> node lotr_character_creator.js</p>
+<p align="left">1. Clone este repositório para o seu ambiente local.<br>2. Abra o arquivo lotr_character_creator.js em um editor de texto ou IDE.<br>3. Execute o arquivo JavaScript em um ambiente Node.js para ver a saída dos personagens criados e seus atributos.<br><br></p>
 
+<p>No terminal</p>
+
+```terminal
+node lotr_character_creator.js
+```
+<p>No JavaScript</p>
+
+```javaScript
+// Executando o programa para criar e atribuir atributos aos personagens LOTR
+node lotr_character_creator.js
+```
 ###
 
 <h3 align="left">Contribuições</h3>
