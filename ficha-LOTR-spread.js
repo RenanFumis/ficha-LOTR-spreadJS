@@ -1,6 +1,3 @@
-//personagens de Lord of the Rings
-//posições 1 = companheiro, 2 = inimigo
-//raças 1 = hobbit, 2 = humano, 3 = elfo, 4 = anão
 const personagensLOTR = [
   {
     nome: "Frodo",
@@ -71,12 +68,11 @@ const personagensLOTR = [
   {
     nome: "Boromir",
     classe: "guerreiro",
-    posicao: 1,
+    posicao: 2,
     raca: 2,
   },
 ];
 
-//Classes de personagens
 const guerreiros = {
   forca: 10,
   defesa: 8,
@@ -106,7 +102,6 @@ const ladino = {
   vida: 100,
 };
 
-//Posições classificadas como 1(companheiro) e 2(inimigo)
 const posicao = {
   posicao: "companheiro",
 };
@@ -114,7 +109,6 @@ const posicao2 = {
   posicao: "inimigo",
 };
 
-//Raças classificadas como 1(hobbit), 2(humano), 3(elfo) e 4(anão) e suas características
 const hobbit = {
   raca: "hobbit",
   altura: 1.2,
@@ -139,46 +133,56 @@ const anao = {
   velocidade: 6,
 };
 
-//Funçaõ que atribui os atributos de cada classe ao personagem
 personagensLOTR.forEach((personagem) => {
   let atributos = {};
-  if (personagem.classe === "ladino") {
-    atributos = { ...personagem, ...ladino };
-    console.log("==========================");
-  } else if (personagem.classe === "guerreiro") {
-    atributos = { ...personagem, ...guerreiros };
-    console.log("==========================");
-  } else if (personagem.classe === "clérigo") {
-    atributos = { ...personagem, ...clerigo };
-    console.log("==========================");
+  switch (personagem.classe) {
+    case "ladino":
+      atributos = { ...personagem, ...ladino };
+      console.log("==========================");
+      break;
+    case "guerreiro":
+      atributos = { ...personagem, ...guerreiros };
+      console.log("==========================");
+      break;
+    case "clérigo":
+      atributos = { ...personagem, ...clerigo };
+      console.log("==========================");
+      break;
   }
-  //Condição para atribuir os atributos de acordo com a posição do personagem
-  if (personagem.posicao === 1) {
-    atributos.defesa += 5;
-    atributos = { ...atributos, ...posicao };
-  } else if (personagem.posicao === 2) {
-    atributos.forca += 7;
-    atributos = { ...atributos, ...posicao2 };
+
+  switch (personagem.posicao) {
+    case 1:
+      atributos.defesa += 5;
+      atributos = { ...atributos, ...posicao };
+      break;
+    case 2:
+      atributos.forca += 7;
+      atributos = { ...atributos, ...posicao2 };
+      break;
   }
-//Condição para atribuir os atributos de acordo com a raça do personagem
-  if (personagem.raca === 1) {
-    atributos.carisma +=2;
-    atributos.destreza +=2;
-    atributos = { ...atributos, ...hobbit };
-  } else if (personagem.raca === 2) {
-    atributos = { ...atributos, ...humano };
-  } else if (personagem.raca === 3) {
-    atributos.forca += 3;
-    atributos.defesa += 3;
-    atributos.destreza += 3;
-    atributos.carisma += 3;
-    atributos = { ...atributos, ...elfo };
-  } else if (personagem.raca === 4) {
-    atributos.forca += 5;
-    atributos.carisma -= 2;
-    atributos.inteligencia -= 1;
-    atributos = { ...atributos, ...anao };
+
+  switch (personagem.raca) {
+    case 1:
+      atributos.carisma += 2;
+      atributos.destreza += 2;
+      atributos = { ...atributos, ...hobbit };
+      break;
+    case 2:
+      atributos = { ...atributos, ...humano };
+      break;
+    case 3:
+      atributos.forca += 3;
+      atributos.defesa += 3;
+      atributos.destreza += 3;
+      atributos.carisma += 3;
+      atributos = { ...atributos, ...elfo };
+      break;
+    case 4:
+      atributos.forca += 5;
+      atributos.carisma -= 2;
+      atributos.inteligencia -= 1;
+      atributos = { ...atributos, ...anao };
+      break;
   }
-  
   console.log(atributos);
 });
